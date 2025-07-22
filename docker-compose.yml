@@ -1,0 +1,11 @@
+services:
+  cleanarchitecture.db:
+    image: postgres:16
+    
+  cleanarchitecture.api:
+    image: ${DOCKER_REGISTRY-}cleanarchitectureapi
+    build:
+      context: .
+      dockerfile: src/CleanArchitecture/CleanArchitecture.Api/Dockerfile
+volumes:
+  pg_db:
