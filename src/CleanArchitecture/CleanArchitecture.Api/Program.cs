@@ -49,6 +49,8 @@ app.SeedData();
 app.SeedAuthentication();
 
 app.UseCustomExceptionHandler();
+//configuramos el middleware creado por nosotros para que registre el contexto de la peticion
+app.UseRequestContextLogging();
 
 //configuramos el middleware de serilog para que registre las peticiones y respuestas
 app.UseSerilogRequestLogging();
