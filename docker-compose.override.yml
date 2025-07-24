@@ -13,7 +13,7 @@ services:
     
   cleanarchitecture.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      
       - ConnectionStrings__Database=Server=cleanarchitecture.db;Port=5432;Database=cleanarchitecturedb;User Id=postgres;Password=postgres;Include Error Detail=true
       - ASPNETCORE_HTTP_PORTS=8080
       # - ASPNETCORE_HTTPS_PORTS=8081

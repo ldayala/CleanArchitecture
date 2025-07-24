@@ -37,12 +37,13 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
+/*
+if (app.Environment.IsDevelopment()  )
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+   
+}*/
+app.UseSwagger();
+app.UseSwaggerUI();
 
 await app.ApplyMigration();
 app.SeedData();
