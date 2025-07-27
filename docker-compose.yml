@@ -13,4 +13,4 @@ services:
     
 volumes:
   pg_db:
-  seq_data:  
+  

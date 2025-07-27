@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 //con esto decimos que la configuracion de serilog se va a leer desde el archivo appsettings.json
 builder.Host.UseSerilog((context, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration));
+Serilog.Debugging.SelfLog.Enable(Console.Error.WriteLine);
+
 
 builder.Services.AddControllers();
 
@@ -56,7 +58,7 @@ app.UseRequestContextLogging();
 //configuramos el middleware de serilog para que registre las peticiones y respuestas
 app.UseSerilogRequestLogging();
 
-
+Log.Information("Prueba de conexión a Seq: la aplicación ha iniciado correctamente.");
 app.UseAuthentication();
 app.UseAuthorization();
 
