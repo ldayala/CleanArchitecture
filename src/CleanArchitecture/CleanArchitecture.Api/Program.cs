@@ -33,7 +33,11 @@ builder.Services.AddSingleton<IAuthorizationHandler, PermissionAutorizacionHandl
 builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizacionPolicyProvider>();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//configuracion del swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.CustomSchemaIds(type => type.FullName);
+});
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -44,8 +48,11 @@ if (app.Environment.IsDevelopment()  )
 {
    
 }*/
-app.UseSwagger();
+app.UseSwagger(
+
+    );
 app.UseSwaggerUI();
+
 
 await app.ApplyMigration();
 app.SeedData();

@@ -75,7 +75,7 @@ public sealed class Alquiler : Entity<AlquilerId>
 
         var alquiler = new Alquiler(
             AlquilerId.New(),
-            vehiculo.Id,
+            vehiculo.Id!,
             userId,
             duracion,
             precioDetalle.PrecioPorPeriodo,

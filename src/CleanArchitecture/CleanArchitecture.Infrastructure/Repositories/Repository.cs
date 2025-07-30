@@ -28,7 +28,7 @@ where TEntityId : class
         .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public void Add(TEntity entity)
+    public virtual void Add(TEntity entity)
     {
         DbContext.Add(entity);
     }
@@ -54,7 +54,7 @@ where TEntityId : class
 
     public async Task<PagedResults<TEntity, TEntityId>> GetPaginationAsync(
         Expression<Func<TEntity, bool>>? predicate,
-        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> includes,
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? includes,
         int page,
         int pageSize,
         string orderBy,
